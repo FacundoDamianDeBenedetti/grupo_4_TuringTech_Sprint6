@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- HEAD-->
+  <%- include("../partials/head.ejs") %>
+  <!-- FIN HEAD-->
+
+  <body>
+    <!-- HEADER + NAVBAR + LOGO -->
+    <%- include("../partials/header.ejs") %>
+    <!-- FIN  HEADER + NAVBAR + LOGO -->
+
+    <!-- MAIN (SLIDER, PRODUCTOS DESTACADOS, MAPS) -->
+    <main class="main-addProduct">
+      <section class="main-addProduct-container">
+        <h2 class="main__title-addProduct">Ingrese los nuevos productos</h2>
+
+        <form
+          action="/productAdd/create"
+          enctype="multipart/form-data"
+          method="POST"
+        >
+          <div class="main__container-rol rol">
+            <p>Categoria</p>
+            <div class="main__bluebox">
+              <img
+                src="images/registro-assets/id.svg"
+                alt="rol-registro"
+                id="main__register-rol"
+              />
+            </div>
+            <div class="main__register">
+              <select name="productCategory" id="productCategory">
+                <% for(let i = 0; i < categories.length;i++){ %>
+                <option value="<%= categories[i].id %>">
+                    <%= categories[i].categorie_name %> 
+                </option>
+                <% } %> 
+              </select>
+            </div>
+          </div>
+
+          <div class="main__container-rol rol">
+            <p>Marcas</p>
+            <div class="main__bluebox">
+              <img
+                src="images/registro-assets/id.svg"
+                alt="rol-registro"
+                id="main__register-rol"
+              />
+            </div>
+            <div class="main__register">
+              <select name="productBrand" id="productBrand">
+                <% for(let i = 0; i < brands.length;i++){ %>
+                <option value="<%= brands[i].id %>">
+                    <%= brands[i].brand_name %> 
+                </option>
+                <% } %> 
+              </select>
+            </div>
+          </div>
+
+          <div class="main__container-name">
+            <p>Nombre</p>
+            <div class="main__bluebox">
+              <img
+                src="images/registro-assets/name.svg"
+                alt="nombre-registro"
+                id="main__-name"
+              />
+            </div>
+            <div class="main__register">
+              <input
+                type="text"
+                name="productName"
+                id="productName"
+                placeholder="Nombre del producto"
+                class="main__register-name"
+                required
+                oninvalid="this.setCustomValidity(' ')"
+              />
+            </div>
+          </div>
+
+          <div class="main__container-user">
+            <p>Descripción</p>
+            <div class="main__bluebox">
+              <img
+                src="images/registro-assets/name.svg"
+                alt="descripción"
+                id="main__register-user"
+              />
+            </div>
+            <div class="main__register">
+              <input
+                type="text"
+                name="productDescription"
+                id="productDescription"
+                placeholder="Descripción del producto"
+                class="main__register-user"
+                required
+                oninvalid="this.setCustomValidity(' ')"
+              />
+            </div>
+          </div>
+
+          <div class="main__container-user">
+            <p>Descripción ampliada</p>
+            <div class="main__bluebox">
+              <img
+                src="images/registro-assets/name.svg"
+                alt="usuario-registro"
+                id="main__register-user"
+              />
+            </div>
+            <div class="main__register">
+              <input
+                type="text"
+                name="productDescriptionLong"
+                id="productDescriptionLong"
+                placeholder="Descripción ampliada del producto"
+                class="main__register-user"
+                required
+                oninvalid="this.setCustomValidity(' ')"
+              />
+            </div>
+          </div>
+
+          <div class="main__container-email">
+            <p>Precio</p>
+            <div class="main__bluebox">
+              <img
+                src="images/productAdd-assets/money-bill-solid.svg"
+                alt="email-registro"
+                id="main__register-email"
+              />
+            </div>
+            <div class="main__register">
+              <input
+                type="number"
+                name="productPrice"
+                id="productPrice"
+                placeholder="Precio"
+                class="main__register-email"
+                required
+                oninvalid="this.setCustomValidity(' ')"
+              />
+            </div>
+          </div>
+
+          <div class="main__container-lock">
+            <p>Stock</p>
+            <div class="main__bluebox">
+              <img
+                src="images/productAdd-assets/stack-overflow-brands.svg"
+                alt="contraseña-registro"
+                id="main__register-lock"
+              />
+            </div>
+            <div class="main__register">
+              <input
+                type="text"
+                name="productStock"
+                id="productStock"
+                placeholder="Stock"
+                class="main__register-lock"
+                required
+                oninvalid="this.setCustomValidity(' ')"
+              />
+            </div>
+          </div>
+
+          <div class="main__container-lock">
+            <p>Cuotas</p>
+            <div class="main__bluebox">
+              <img
+                src="/images/productAdd-assets/stack-overflow-brands.svg"
+                alt="contraseña-registro"
+                id="main__register-fees"
+              />
+            </div>
+            <div class="main__register">
+              <input
+                type="text"
+                name="productFees"
+                id="productFees"
+                placeholder="Cuotas"
+                class="main__register-lock"
+                required
+                oninvalid="this.setCustomValidity(' ')"
+              />
+            </div>
+          </div>
+
+          <div class="main__container-lock">
+            <p>Descuento</p>
+            <div class="main__bluebox">
+              <img
+                src="/images/productAdd-assets/stack-overflow-brands.svg"
+                alt="contraseña-registro"
+                id="main__register-discount"
+              />
+            </div>
+            <div class="main__register">
+              <select name="productDiscount" id="productDiscount">
+                <% for(let i = 0; i < discounts.length;i++){ %>
+                <option value="<%= discounts[i].id %>">
+                    <%= discounts[i].discount %> 
+                </option>
+                <% } %> 
+              </select>
+            </div>
+          </div>
+
+          <div class="main__container-avatar avatar">
+            <p>Imagen 1</p>
+            <div class="main__bluebox">
+              <img
+                src="images/productAdd-assets/file-image-solid.svg"
+                alt="avatar-registro"
+                id="main__register-avatar"
+              />
+            </div>
+            <div class="main__register">
+              <input
+                type="file"
+                name="imageProduct"
+                id="imageProduct"
+                placeholder="Foto producto"
+                class="main__register-avatar"
+                oninvalid="this.setCustomValidity(' ')"
+              />
+            </div>
+          </div>
+
+          <!--       <div class="main__container-avatar avatar">
+                    <p>Imagen 2</p>
+                    <div class="main__bluebox"><img src="images/productAdd-assets/file-image-solid.svg" alt="avatar-registro"
+                            id="main__register-avatar"></div>
+                    <div class="main__register">
+                        <input type="file" name="productImage2" id="productImage2" placeholder="Foto producto"
+                            class="main__register-avatar" oninvalid="this.setCustomValidity(' ')">
+                    </div>
+                </div>
+
+                <div class="main__container-avatar avatar">
+                    <p>Imagen 3</p>
+                    <div class="main__bluebox"><img src="images/productAdd-assets/file-image-solid.svg" alt="avatar-registro"
+                            id="main__register-avatar"></div>
+                    <div class="main__register">
+                        <input type="file" name="productImage3" id="productImage3" placeholder="Foto producto"
+                            class="main__register-avatar" oninvalid="this.setCustomValidity(' ')">
+                    </div>
+                </div>
+
+                <div class="main__container-avatar avatar">
+                    <p>Imagen 4</p>
+                    <div class="main__bluebox"><img src="images/productAdd-assets/file-image-solid.svg" alt="avatar-registro"
+                            id="main__register-avatar"></div>
+                    <div class="main__register">
+                        <input type="file" name="productImage4" id="productImage4" placeholder="Foto producto"
+                            class="main__register-avatar" oninvalid="this.setCustomValidity(' ')">
+                    </div>
+                </div>
+
+                <div class="main__container-avatar avatar">
+                    <p>Imagen 5</p>
+                    <div class="main__bluebox"><img src="images/productAdd-assets/file-image-solid.svg" alt="avatar-registro"
+                            id="main__register-avatar"></div>
+                    <div class="main__register">
+                        <input type="file" name="productImage5" id="productImage5" placeholder="Foto producto"
+                            class="main__register-avatar" oninvalid="this.setCustomValidity(' ')">
+                    </div>
+                </div> -->
+
+          <div class="main__container-rol rol">
+            <p>Visibilidad</p>
+            <div class="main__bluebox">
+              <img
+                src="images/productAdd-assets/eye-slash-regular.svg"
+                alt="rol-registro"
+                id="main__register-rol"
+              />
+            </div>
+            <div class="main__register">
+              <select name="productVisibility" id="productVisibility">
+                <option value="activo" selected>Activo</option>
+                <option value="inactivo">Inactivo</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="main__container-rol rol">
+            <p>Destacado en Home</p>
+            <div class="main__bluebox">
+              <img
+                src="images/productAdd-assets/star-regular.svg"
+                alt="rol-registro"
+                id="main__register-rol"
+              />
+            </div>
+            <div class="main__register">
+              <select name="productImportant" id="productImportant">
+                <option value="destacado-si" selected>Si</option>
+                <option value="destacado-no">No</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" id="create-submit">Agregar</button>
+        </form>
+      </section>
+    </main>
+    <!-- FIN MAIN (SLIDER, PRODUCTOS DESTACADOS, MAPS) -->
+
+    <!-- footer-->
+    <%- include("../partials/footer.ejs") %>
+    <!-- fin footer-->
+  </body>
+</html>
