@@ -3,7 +3,7 @@ const multer = require("multer"),
 
 const storage = multer.diskStorage({
     destination: (req,file,cb) => {
-        let folder = path.resolve(__dirname, "../../public/images/productos-assets/procesadores-amd")
+        let folder = path.resolve(__dirname, "../../public/images/productos-assets")
         cb(null,folder)
     },
     filename: (req,file,cb) => {

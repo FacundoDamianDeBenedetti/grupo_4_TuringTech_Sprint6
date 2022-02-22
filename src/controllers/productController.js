@@ -112,7 +112,7 @@ const productController = {
 
                 for (let i = 0; i < products.length; i++) {
                     for(let j = 0; j < categories.length;j++){
-                        if(products[i].categorie_id === categories[j].id){
+                        if(products[i].categorie_id === categories[j].id && categories[j].categorie_name === req.params.productCategory){
                             productsFiltered.push(products[i])
                         }
                     }
