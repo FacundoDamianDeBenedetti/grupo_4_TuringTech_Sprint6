@@ -7,16 +7,16 @@
 ### Con el equipo nos dimos cuenta de las siguientes actitudes que queremos mantener y otras que debemos mejorar.
 
 ### Comenzar a hacer: 
--Usar un poco mas el trello
--llegar a las clases con los videos vistos
--ser mas organizados.
+-reunirnos para resolver dudas
+
 ### Hacer más:
--hacer mas reuniones                                                                                                                                                                -practicar más
--resolver los ejercicios del playground y ponerlos en practica
+
+-poner metas cumplibles
+
 ### Continuar haciendo: 
--seguir ayudandonos en el grupo a pesar de que no nos conectemos a reuniones virtuales.                                                                                             
--conversar sobre los problemas que vayan surgiendo.
--Mejorar codigo que en el antiror spint no se vio 
+
+-seguir asistiendo a clases y completar el playground
+
 ### Hacer menos:
 -saltearse reuniones.                                                                                                                                     
 -no hacer commits continuos para avanzar en el proyecto gradualmente.
