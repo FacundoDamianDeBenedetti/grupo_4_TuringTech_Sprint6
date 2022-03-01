@@ -150,6 +150,24 @@
     #registroRol option{
         background-color: var(--negro-intenso-transparente);
     }
+
+    #registroProvince{
+        font-size: 1.5rem;
+        background-color: transparent;
+    }
+      
+    #registroProvince option{
+        background-color: var(--negro-intenso-transparente);
+    }
+
+    #registroLocality{
+        font-size: 1.5rem;
+        background-color: transparent;
+      }
+      
+    #registroLocality option{
+        background-color: var(--negro-intenso-transparente);
+    }
     
     #main__register-submit{
         background-color: var(--negro-intenso-transparente);

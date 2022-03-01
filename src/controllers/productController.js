@@ -69,6 +69,26 @@ const productController = {
     productPut: (req,res) => {
         let sliced = req.file.path.slice(req.file.path.indexOf("productos-assets"), req.file.path.length)
 
+        /* let rows = this.readFile();
+
+            let updatedRows = rows.map(oneRow => {
+                if(oneRow.id == row.id){
+                    if(oneRow.productImage1){
+                        fs.unlinkSync(path.resolve(__dirname, `../../public/images/${oneRow.ruta}`))
+                    }
+                }
+                if (oneRow.id == row.id) {
+                    return row;
+                }
+
+                return oneRow;
+            });
+            // escribo el archivo
+            //console.log(updatedRows)
+            this.writeFile(updatedRows);
+
+            return row.id; */
+
         db.Product.update({
             product_name: req.body.productName,
 			product_description: req.body.productDescription,
@@ -93,6 +113,24 @@ const productController = {
         })
     },
     productDelete: (req,res) => {
+        //console.log('Elimino :' + id)
+        /* let rows = this.readFile();
+
+        //Recorro todas las filas y elimino el archivo-imágen del producto que coincida con el id del mismo
+        rows.forEach(row => {
+            if(row.id == id){
+                if(row.productImage1){
+                    fs.unlinkSync(path.resolve(__dirname, `../../public/images/${row.ruta}`))
+                }
+            }
+        });
+
+        let updatedRows = rows.filter(row => {
+            return row.id != id;
+        });
+
+        this.writeFile(updatedRows); */
+
         db.Product.destroy({
             where: {
                 id: req.params.id

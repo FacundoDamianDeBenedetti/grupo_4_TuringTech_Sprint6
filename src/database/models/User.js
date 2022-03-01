@@ -1,4 +1,4 @@
-module.exports= (sequelize, dataTypes) => {
+module.exports = (sequelize, dataTypes) => {
     let alias = 'User'
     let cols = {
         id: {
@@ -10,9 +10,9 @@ module.exports= (sequelize, dataTypes) => {
         rol_id: {
             type: dataTypes.INTEGER
         },
-        adress_id: {
+/*         adress_id: {
             type: dataTypes.INTEGER,
-        },
+        }, */
         user_fullname: {
             type: dataTypes.STRING,
         },
@@ -33,6 +33,9 @@ module.exports= (sequelize, dataTypes) => {
         },
         user_lockrepeat: {
             type:dataTypes.STRING
+        },
+        imageUser: {
+            type:dataTypes.STRING
         }
     }
     let config = {
@@ -47,10 +50,10 @@ module.exports= (sequelize, dataTypes) => {
             foreignKey: "rol_id"
         })
         
-        User.belongsTo(models.Adress,{
+        /* User.belongsTo(models.Adress,{
             as: "direccion",
             foreignKey: "adress_id"
-        })
+        }) */
     }
 
     return User

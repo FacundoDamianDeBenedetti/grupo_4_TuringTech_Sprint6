@@ -6,13 +6,16 @@
             <button type="submit" class="header__lupa"><img src="/images/header-assets/lupa.svg" alt="lupa"></button>
         </form>
         <div class="header__container-user-car">
-            <!-- <div class="header__profile-container">
-                <img src="/images/users-assets/<%= locals.userLogged ? locals.userLogged.userAvatar : 'default-image.png'%>" alt="Img de perfil" class="header__profile-img">
-                <img src="/images/header-assets/arrow.svg" alt="Flecha de opciones" class="header__profile-arrow">
-            </div> -->
-
-            <a href="/login"><img src="/images/header-assets/user.svg" alt="usuario" id="header__user"></a>
-            <a href="/productCart"> <img src="/images/header-assets/carrito.svg" alt="carrito" id="header__car"></a>
+            <% if(locals.userLogged){ %>
+                <div class="header__profile-container">
+                    <img src="/images/users-assets/<%= locals.userLogged ? locals.userLogged.imageUser : 'default-image.png'%>" alt="Img de perfil" class="header__profile-img">
+                    <img src="/images/header-assets/arrow.svg" alt="Flecha de opciones" class="header__profile-arrow">
+                </div>
+                <a href="/productCart"> <img src="/images/header-assets/carrito.svg" alt="carrito" id="header__car"></a>
+            <% }else{ %>
+                <a href="/login"><img src="/images/header-assets/user.svg" alt="usuario" id="header__user"></a>
+                <a href="/productCart"> <img src="/images/header-assets/carrito.svg" alt="carrito" id="header__car"></a>
+            <% } %>
         </div>
     </div>
 

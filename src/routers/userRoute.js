@@ -36,10 +36,10 @@ router.get("/ayuda", userController.ayuda);
 
 //Login
 router.get('/login', guestMiddleware,userController.loginGet);
-//router.post("/login", userController.loginPost);
+router.post("/login", userController.loginPost);
 
 //Logout
-//router.get("/out",userController.logout)
+router.get("/out",userController.logout)
 
 //Registro
 router.get('/register', guestMiddleware,userController.registerGet);
@@ -49,11 +49,8 @@ router.post('/register',uploadUsers.single("registroAvatar"),validationScheme, u
 router.get("/restablecer", userController.restablecer);
 
 //pageProfile
-router.get('/pageProfile',userController.pageProfile );
-
-//editProfile
-
-router.get('/editProfile', userController.editProfile)
+router.get('/pageProfile', authMiddleware,userController.pageProfile );
+router.put('/pageProfile',uploadUsers.single("imageUser"),userController.pageProfilePost );
 
 /* Con readDetail - LEE PRODUCTO SEGUN ID */
 //router.get('/detalle/:menuId', productController.readDetail);

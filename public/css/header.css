@@ -103,19 +103,20 @@
     position: relative;
     width: 6rem;
     height: 6.5rem;
+    margin-right: 0.5rem;
 }
 
 .header__profile-img{
-    width: 6rem;
+    width: 5.5rem;
     border-radius: 3rem;
 }
 
-/* .header__profile-arrow{
+.header__profile-arrow{
     width: 1.2rem;
     position: absolute;
     left:85%;
     top:85%;
-} */
+}
 
 
 /*Tablet - netbook*/

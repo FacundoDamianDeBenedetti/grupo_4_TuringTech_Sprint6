@@ -83,16 +83,22 @@
                     <div class="main__bluebox"><img src="images/registro-assets/locality.svg" alt="localidad-registro"
                             id="main__register-locality"></div>
                     <div class="main__register">
-                        <input type="text" name="registroLocality" id="registroLocality" placeholder="Localidad"
-                            class="main__register-locality" value="<%= locals.old && old.registroLocality ? old.registroLocality : "" %>"   oninvalid="this.setCustomValidity(' ')">
+                        <select name="registroLocality" id="registroLocality" class="main__register-locality">
+                            <% for(let i = 0; i < localities.length;i++) {%> 
+                                <option value="<%= localities[i].id %>"><%= localities[i].locality %></option>
+                            <% } %> 
+                        </select>
                     </div>
                 </div>
                 <div class="main__container-province <%= locals.errors && errors.registroProvince ? "province" : null %>">
                     <div class="main__bluebox"><img src="images/registro-assets/province.svg" alt="province-registro"
                             id="main__register-province"></div>
                     <div class="main__register">
-                        <input type="text" name="registroProvince" id="registroProvince" placeholder="Provincia"
-                            class="main__register-province" value="<%= locals.old && old.registroProvince ? old.registroProvince : "" %>"   oninvalid="this.setCustomValidity(' ')">
+                        <select name="registroProvince" id="registroProvince" class="main__register-province">
+                            <% for(let i = 0; i < provinces.length;i++) {%> 
+                                <option value="<%= provinces[i].id %>"><%= provinces[i].province %></option>
+                            <% } %> 
+                        </select>
                     </div>
                 </div>
                 <div class="main__container-lock <%= locals.errors && errors.registroLock ? "contrasenia" : null %>">
@@ -125,8 +131,9 @@
                             id="main__register-rol"></div>
                     <div class="main__register">
                         <select name="registroRol" id="registroRol">
-                            <option value="Comprador" selected>Comprador</option>
-                            <option value="Vendedor">Vendedor</option>
+                            <% for(let i = 0; i < roles.length;i++) {%> 
+                                <option value="<%= roles[i].id %>"><%= roles[i].rol_name %></option>
+                            <% } %> 
                         </select>
                     </div>
                 </div>
